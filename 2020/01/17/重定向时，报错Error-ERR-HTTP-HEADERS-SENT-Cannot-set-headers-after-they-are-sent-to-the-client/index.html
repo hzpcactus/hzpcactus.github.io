@@ -26,7 +26,8 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -448,14 +449,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-17
+                    2020-01-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    250
+                    240
                 </div>
                 
 
@@ -480,27 +481,27 @@
             <div id="articleContent">
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;nodejs连接mysql数据库时遇到一个问题，就是第一次连接时，数据正常接收到，但是当刷新页面重定向时报错，并且node服务会断开，如图<br><img src="https://img-blog.csdnimg.cn/2020011212070853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>错误代码如下：<br><img src="https://img-blog.csdnimg.cn/2020011212270951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>经过上网查找之后，发现<strong>res.send()</strong> 中包含<strong>res.end()</strong> 方法，调用一次之后，数据正常返回，但同时执行了res.end()，再一次调用此接口，就会报<strong>Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client</strong></p>
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>将<strong>res.send();</strong> 注释掉即可。<br>但之后又会报一个错误，如图<br><img src="https://img-blog.csdnimg.cn/20200112124611799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>报错<strong>Error: Cannot enqueue Quit after invoking quit.</strong><br>我用的是mysql模块，因为频繁调用<strong>connection.end();</strong> 导致出现这种报错，所以最终代码如下</p>
-<pre><code class="javascript">//查询学校列表
-router.get(&#39;/school&#39;, function(req, res, next) {
-  connection.query(&quot;select * from school&quot;,function (err, result) {
-    if(err){
-      // res.send(err.message);
-      res.json({
-        status:&quot;1&quot;,
-        msg:err.message
-      });
-      return;
-    }else{
-      // res.send(result);
-      res.json({
-        status:&quot;0&quot;,
-        msg:result
-      });
-    }
-  });
-  // connection.end();
-  // res.send(&#39;respond with a resource&#39;);
-});</code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//查询学校列表</span>
+router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/school'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"select * from school"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// res.send(err.message);</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span>err<span class="token punctuation">.</span>message
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// res.send(result);</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span>result
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// connection.end();</span>
+  <span class="token comment" spellcheck="true">// res.send('respond with a resource');</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -994,30 +995,30 @@ router.get(&#39;/school&#39;, function(req, res, next) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/17/%E9%87%8D%E5%AE%9A%E5%90%91%E6%97%B6%EF%BC%8C%E6%8A%A5%E9%94%99Error-ERR-HTTP-HEADERS-SENT-Cannot-set-headers-after-they-are-sent-to-the-client/">
+                <a href="/2020/01/21/%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%86%99%E5%90%8E%E5%8F%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="如何用Node.js写后台">
                         
-                        <span class="card-title">重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client</span>
+                        <span class="card-title">如何用Node.js写后台</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &nbsp;&nbsp;&nbsp;&nbsp;nodejs连接mysql数据库时遇到一个问题，就是第一次连接时，数据正常接收到，但是当刷新页面重定向时报错，并且node服务会断开，如图错误代码如下：经过上网查找之后，发现res.send(
+                            由于毕业项目需要前后端都有，前端做了个大概，思路设计的基本清晰，所以后台开始准备着手做了~
+前期工作&nbsp;&nbsp;&nbsp;&nbsp;刚开始自己打算把后台文件直接放到前端项目文件中，考虑到后台配置问题、前后端分离，所以把后台放
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1026,12 +1027,11 @@ router.get(&#39;/school&#39;, function(req, res, next) {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
@@ -1266,7 +1266,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.3k</span>&nbsp;字
+                class="white-color">5.1k</span>&nbsp;字
             
             
             

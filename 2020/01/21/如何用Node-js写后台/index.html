@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Echarts地图（散点图）, Hzp&#39;s Blog">
-    <meta name="description" content="seriessymbolSize(散点图)首先series是个对象，里面存放多个数组，symbolSize要放到series对象的数组中，具体放在含有type:”scatter”的数组中，但是散点如何使用呢？我看了一下各种博客、Echart">
+    <meta name="keywords" content="如何用Node.js写后台, Hzp&#39;s Blog">
+    <meta name="description" content="由于毕业项目需要前后端都有，前端做了个大概，思路设计的基本清晰，所以后台开始准备着手做了~
+前期工作&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;刚开始自己打算把后台文件直接放到前端项目文件中，考虑到后台配置问题、前后端分离，所以把后台放">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Echarts地图（散点图） | Hzp&#39;s Blog</title>
+    <title>如何用Node.js写后台 | Hzp&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Echarts地图（散点图）</h1>
+                    <h1 class="description center-align post-title">如何用Node.js写后台</h1>
                 </div>
             </div>
         </div>
@@ -426,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Echarts/">
-                                <span class="chip bg-color">Echarts</span>
+                            <a href="/tags/Node-js/">
+                                <span class="chip bg-color">Node.js</span>
                             </a>
                         
                     </div>
@@ -442,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-02
+                    2020-01-21
                 </div>
                 
 
@@ -456,14 +457,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    596
+                    870
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -479,50 +480,77 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="series"><a href="#series" class="headerlink" title="series"></a>series</h2><h5 id="symbolSize-散点图"><a href="#symbolSize-散点图" class="headerlink" title="symbolSize(散点图)"></a>symbolSize(散点图)<img src="https://img-blog.csdnimg.cn/20191201114932908.png" alt="官方解释"></h5><p>首先series是个对象，里面存放多个数组，symbolSize要放到series对象的数组中，具体放在<strong>含有type:”scatter”的数组</strong>中，但是散点如何使用呢？<br>我看了一下各种博客、Echarts官网、样例，然后自己测试了一下，发现传给symbolSize中的参数由三种值组成，传过来的参数也就是同级的data属性，data是一个二维数组，其中每个数组中由三种值构成，分别是[<strong>经度</strong>，<strong>纬度</strong>，<strong>对应的数值</strong>]。举个例子，武汉的地理坐标是（114.31，30.52），设置的值为50，那你在data数组中应该是这样[114.31,30.52,50]。<br>如果你想让散点的大小根据具体数值来变化，修改返回值即可，如图</p>
-<pre class="line-numbers language-js"><code class="language-js">symbolSize<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> val<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//返回data数组中对应的数值</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>今天遇到坑了。。代码如下</p>
-<pre class="line-numbers language-js"><code class="language-js">series<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-              name<span class="token punctuation">:</span> <span class="token string">'投资项目数'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 浮动框的标题</span>
-              type<span class="token punctuation">:</span> <span class="token string">'effectScatter'</span><span class="token punctuation">,</span>
-              coordinateSystem<span class="token punctuation">:</span> <span class="token string">'geo'</span> <span class="token punctuation">,</span><span class="token comment" spellcheck="true">// 对应上方配置</span>
-              data<span class="token punctuation">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>sizeList<span class="token punctuation">,</span>
-              symbolSize<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">parseInt</span><span class="token punctuation">(</span>val<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                  <span class="token keyword">return</span> <span class="token number">15</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-                <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>val<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-              <span class="token punctuation">}</span><span class="token punctuation">,</span>
-              showEffectOn<span class="token punctuation">:</span> <span class="token string">'render'</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">// 绘制完成后显示特效</span>
-              rippleEffect<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                  brushType<span class="token punctuation">:</span> <span class="token string">'stroke'</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">//圆点的波纹方式</span>
-              <span class="token punctuation">}</span><span class="token punctuation">,</span>
-              hoverAnimation<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">//动画效果</span>
-              label<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                normal<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                    formatter<span class="token punctuation">:</span> <span class="token string">'{a}'</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    position<span class="token punctuation">:</span> <span class="token string">'right'</span><span class="token punctuation">,</span>
-                    show<span class="token punctuation">:</span> <span class="token boolean">true</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span>
-                emphasis<span class="token punctuation">:</span> <span class="token punctuation">{</span>   <span class="token comment" spellcheck="true">//label标签样式控制</span>
-                    show<span class="token punctuation">:</span> <span class="token boolean">true</span>
-                <span class="token punctuation">}</span>
-              <span class="token punctuation">}</span><span class="token punctuation">,</span>
-              zlevel<span class="token punctuation">:</span> <span class="token number">1</span>   <span class="token comment" spellcheck="true">//用于分层</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>label中的formatter格式化问题</p>
-<p><img src="https://img-blog.csdnimg.cn/20191202195148117.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt="Echarts官方文档"><br><strong>formatter:’{a}’.split(“,”)[2]</strong>是可以显示的，显示的是特定的值<br><img src="https://img-blog.csdnimg.cn/20191202195353368.png" alt=""><br>但是在tooltip提示框中的formatter这样写却不好使，<strong>formatter:’{c}’.split(“,”)[2]</strong>,显示的却是{c}完整的字符串，用substring()截取也不好使（前提已经用typeof测过了，是String类型）…<br>看来用字符串模板不好使，试一下用回调函数</p>
-<p><img src="https://img-blog.csdnimg.cn/20191202200016133.png" alt=""></p>
-<pre class="line-numbers language-javascript"><code class="language-javascript">formatter<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">{</span>
-              <span class="token comment" spellcheck="true">// console.log(params);</span>
-              <span class="token keyword">return</span> params<span class="token punctuation">.</span>seriesName<span class="token operator">+</span><span class="token string">"&lt;br>"</span><span class="token operator">+</span>params<span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">":"</span><span class="token operator">+</span>params<span class="token punctuation">.</span>value<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>最后通过回调函数终于弄出来啦~，效果如图</p>
-<p><img src="https://img-blog.csdnimg.cn/20191202200159103.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;最后需要提醒一下，有可能会有人问，为什么data数组对象中的value不只设置投资项目数的值？<br>&nbsp;&nbsp;&nbsp;&nbsp;由于要在相应的城市下显示项目数，所以就像文章头说的那样，每个数组中由三种值构成，分别是[<strong>经度</strong>，<strong>纬度</strong>，<strong>对应的数值</strong>]，前两个值要存放城市的经纬度，所以value就需要拆分，把项目数挑出来~</p>
-<hr>
-额，o_o ....echarts中的属性好多，多背背相关的单词吧。。
+                <p>由于毕业项目需要前后端都有，前端做了个大概，思路设计的基本清晰，所以后台开始准备着手做了~</p>
+<h2 id="前期工作"><a href="#前期工作" class="headerlink" title="前期工作"></a>前期工作</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;刚开始自己打算把后台文件直接放到前端项目文件中，考虑到后台配置问题、前后端分离，所以把后台放到一个独立的项目文件中，这样方便管理和修改~<br>提前安装好nodejs</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="1-express新建后台项目"><a href="#1-express新建后台项目" class="headerlink" title="1.express新建后台项目"></a>1.express新建后台项目</h3><p>首先选择创建项目的地址，如果在某个文件夹中创建，则在其文件夹中cmd，然后输入<strong>express -t ejs 项目名称</strong> 。创建好项目后，结构就会是这样<img src="https://img-blog.csdnimg.cn/20200121172140699.png" alt=""><br>然后再<strong>npm install</strong></p>
+<h3 id="2-修改后台项目文件"><a href="#2-修改后台项目文件" class="headerlink" title="2.修改后台项目文件"></a>2.修改后台项目文件</h3><p>routes文件夹中文件中就是咱们要写的接口，这两个文件用来写接口远远不够的，所以以users.js中的内容来新建js文件(每个js文件负责不同模块的接口，这样便于区分修改)<br><img src="https://img-blog.csdnimg.cn/20200121172607952.png" alt="route文件夹中文件"><br>users.js文件内容如下：</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">
+<span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* GET users listing. */</span>
+router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'respond with a resource'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>router的get/post方法就是咱们写的一个个接口，测试过程直接省略….<br>我直接拿node.js连接mysql数据库举例</p>
+<h3 id="3-Node-js连接mysql测试"><a href="#3-Node-js连接mysql测试" class="headerlink" title="3.Node.js连接mysql测试"></a>3.Node.js连接mysql测试</h3><p>数据库已经建好,我用<strong>SQLyog</strong>应用来给大家展示新建的数据库，如图<br><img src="https://img-blog.csdnimg.cn/20200121174032615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt="&quot;campus-social&quot;数据库"><br>users.js文件修改后的代码</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript">
+<span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> router <span class="token operator">=</span> express<span class="token punctuation">.</span><span class="token function">Router</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{</span>     
+  host     <span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>       
+  user     <span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>              
+  password <span class="token punctuation">:</span> <span class="token string">'19980605'</span><span class="token punctuation">,</span>       
+  port<span class="token punctuation">:</span> <span class="token string">'3306'</span><span class="token punctuation">,</span>                   
+  database<span class="token punctuation">:</span> <span class="token string">'campus-social'</span> 
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+connection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> param<span class="token operator">=</span><span class="token string">"bbbbbbb"</span><span class="token punctuation">;</span> 
+
+<span class="token comment" spellcheck="true">/* GET users listing. */</span>
+router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+    msg<span class="token punctuation">:</span>param
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'respond with a resource'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//查询学校列表</span>
+router<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/school'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string">"select * from school"</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// res.send(err.message);</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span>err<span class="token punctuation">.</span>message
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// res.send(result);</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span>result
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// connection.end();</span>
+  <span class="token comment" spellcheck="true">// res.send('respond with a resource');</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> router<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输入<strong>node ./www/bin</strong><br>咱们去<strong><a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></strong>测试一下,这是主页面<br><img src="https://img-blog.csdnimg.cn/20200121174900305.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>那如何去想要测试的接口测试呢？<br>正常情况下地址是这样的：<a href="http://localhost:3000/js文件名/接口名" target="_blank" rel="noopener">http://localhost:3000/js文件名/接口名</a><br>要想修改或新建js接口文件，请去app.js文件中修改或新增，修改位置如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200121182910405.png" alt="">)<img src="https://img-blog.csdnimg.cn/20200121182944144.png" alt=""><br>我要测试users.js中的school接口(查询学校列表接口)，结果显示为</p>
+<p><img src="https://img-blog.csdnimg.cn/20200121183537609.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>测试成功！</p>
+<h3 id="4-前后端联调"><a href="#4-前后端联调" class="headerlink" title="4.前后端联调"></a>4.前后端联调</h3><p>接下来我们就要与前端联调，打开我们的前端项目，目录大致为这样，<img src="https://img-blog.csdnimg.cn/2020012118400029.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>根目录下有一个config文件夹，文件夹中有一个index.js，代码<strong>proxyTable</strong>中添加后台中上方所提到的<strong>app.use</strong>中起的名字，例：<br><img src="https://img-blog.csdnimg.cn/20200121185047748.png" alt=""></p>
+<h3 id="5-通过axios调用接口"><a href="#5-通过axios调用接口" class="headerlink" title="5.通过axios调用接口"></a>5.通过axios调用接口</h3><p>在vue文件中用<strong>axios</strong>来调用接口<img src="https://img-blog.csdnimg.cn/20200121185416978.png" alt=""><br>注意，前后端联调时，运行前端项目时，别忘了运行后台，<strong>node ./www/bin</strong>，才能访问到接口；还有正常后台向前端传报文时，报文一般格式是：{status:状态码,msg:内容}，这样方便快速定位错误。<br>在公司实习期间，遇到状态码为500时，好像是服务器后台的问题，但是前端出现问题也可能造成500报错，所以，在和其他人配合时，先确定是否自己前端这边的问题。<br>看一下前端接口数据显示，如图</p>
+<p><img src="https://img-blog.csdnimg.cn/20200121191457835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>界面上用到该接口的地方，如图</p>
+<p><img src="https://img-blog.csdnimg.cn/20200121191736719.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>写接口时，有可能会遇到问题，请见<a href="https://www.hzpcactus.top/2020/01/17/%E9%87%8D%E5%AE%9A%E5%90%91%E6%97%B6%EF%BC%8C%E6%8A%A5%E9%94%99Error-ERR-HTTP-HEADERS-SENT-Cannot-set-headers-after-they-are-sent-to-the-client/" target="_blank" rel="noopener">上一篇</a></p>
 
             </div>
             <hr/>
@@ -548,7 +576,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hzpcactus.github.io/2019/12/02/Echarts%E5%9C%B0%E5%9B%BE%EF%BC%88%E6%95%A3%E7%82%B9%E5%9B%BE%EF%BC%89/">http://hzpcactus.github.io/2019/12/02/Echarts%E5%9C%B0%E5%9B%BE%EF%BC%88%E6%95%A3%E7%82%B9%E5%9B%BE%EF%BC%89/</a>
+                    <a href="http://hzpcactus.github.io/2020/01/21/%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%86%99%E5%90%8E%E5%8F%B0/">http://hzpcactus.github.io/2020/01/21/%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%86%99%E5%90%8E%E5%8F%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -586,8 +614,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Echarts/">
-                                    <span class="chip bg-color">Echarts</span>
+                                <a href="/tags/Node-js/">
+                                    <span class="chip bg-color">Node.js</span>
                                 </a>
                             
                         </div>
@@ -1016,30 +1044,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/13/%E5%9F%9F%E5%90%8D%E4%B8%8E%E5%85%AC%E7%BD%91IP%E5%9C%B0%E5%9D%80-github%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E7%BB%91%E5%AE%9A/">
+                <a href="/2020/01/21/%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%86%99%E5%90%8E%E5%8F%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="域名与公网IP地址(github个人博客)绑定">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="如何用Node.js写后台">
                         
-                        <span class="card-title">域名与公网IP地址(github个人博客)绑定</span>
+                        <span class="card-title">如何用Node.js写后台</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.域名的相关配置  &nbsp; &nbsp; 域名备案终于通过了(好麻烦。。。)，还是建议买一个香港的域名~  由于审批域名之前需要关闭域名解析，我索性删除了公网域名，如图
-  但是，审核通过了，如何把之前的删掉的添加回来呢？，步骤如下
+                            由于毕业项目需要前后端都有，前端做了个大概，思路设计的基本清晰，所以后台开始准备着手做了~
+前期工作&nbsp;&nbsp;&nbsp;&nbsp;刚开始自己打算把后台文件直接放到前端项目文件中，考虑到后台配置问题、前后端分离，所以把后台放
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1048,11 +1077,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%9F%E5%90%8D/">
-                        <span class="chip bg-color">域名</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
@@ -1066,24 +1096,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/30/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%85%AC%E7%BD%91IP%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E7%9A%84HTML%E6%96%87%E4%BB%B6-node-js/">
+                <a href="/2020/01/17/%E9%87%8D%E5%AE%9A%E5%90%91%E6%97%B6%EF%BC%8C%E6%8A%A5%E9%94%99Error-ERR-HTTP-HEADERS-SENT-Cannot-set-headers-after-they-are-sent-to-the-client/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="如何通过公网IP访问云服务器中的HTML文件(node.js)">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client">
                         
-                        <span class="card-title">如何通过公网IP访问云服务器中的HTML文件(node.js)</span>
+                        <span class="card-title">重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            将文件上传到云服务器上的方法上一篇文章结尾说到要教大家如何将文件上传到云服务器上，我总结了两个方法：方法一:&nbsp;&nbsp;&nbsp;&nbsp;在本机上通过git上传上传到自己的github仓库上，然后在云服务器上下载git b
+                            &nbsp;&nbsp;&nbsp;&nbsp;nodejs连接mysql数据库时遇到一个问题，就是第一次连接时，数据正常接收到，但是当刷新页面重定向时报错，并且node服务会断开，如图错误代码如下：经过上网查找之后，发现res.send(
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
                             </span>
                         <span class="publish-author">
                             
@@ -1096,12 +1126,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <span class="chip bg-color">云服务器</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">相关配置</span>
+                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
+                        <span class="chip bg-color">日常</span>
                     </a>
                     
                 </div>
