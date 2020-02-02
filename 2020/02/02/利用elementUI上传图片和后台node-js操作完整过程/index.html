@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="域名与公网IP地址(github个人博客)绑定, Hzp&#39;s Blog">
-    <meta name="description" content="1.域名的相关配置  &amp;nbsp; &amp;nbsp; 域名备案终于通过了(好麻烦。。。)，还是建议买一个香港的域名~  由于审批域名之前需要关闭域名解析，我索性删除了公网域名，如图
-  但是，审核通过了，如何把之前的删掉的添加回来呢？，步骤如下">
+    <meta name="keywords" content="利用elementUI上传图片和后台node.js操作完整过程, Hzp&#39;s Blog">
+    <meta name="description" content="查找了好几天的相关资料，各种方法都有，但是不详细，没有弄懂，今天打算一步一步走走看，结果success~~嘻嘻😁
+前端步骤&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.首先，先去ElementUI组件库中找到Upload">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>域名与公网IP地址(github个人博客)绑定 | Hzp&#39;s Blog</title>
+    <title>利用elementUI上传图片和后台node.js操作完整过程 | Hzp&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">域名与公网IP地址(github个人博客)绑定</h1>
+                    <h1 class="description center-align post-title">利用elementUI上传图片和后台node.js操作完整过程</h1>
                 </div>
             </div>
         </div>
@@ -427,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%9F%9F%E5%90%8D/">
-                                <span class="chip bg-color">域名</span>
+                            <a href="/tags/Node-js/">
+                                <span class="chip bg-color">Node.js</span>
                             </a>
                         
                     </div>
@@ -443,28 +443,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-13
+                    2020-02-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-02-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    790
+                    877
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -480,46 +480,68 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-域名的相关配置"><a href="#1-域名的相关配置" class="headerlink" title="1.域名的相关配置"></a>1.域名的相关配置</h2><p>  &nbsp; &nbsp; 域名备案终于通过了(好麻烦。。。)，还是建议买一个香港的域名~<br>  由于审批域名之前需要关闭域名解析，我索性删除了公网域名，如图</p>
-<p> <img src="https://img-blog.csdnimg.cn/201912131637090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br> 但是，审核通过了，如何把之前的删掉的添加回来呢？，步骤如下<br> 1.进入控制台，找到域名解析，有一个创建公网域名，点进去</p>
-<p> <img src="https://img-blog.csdnimg.cn/20191213164149228.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br> <img src="https://img-blog.csdnimg.cn/20191213164322226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br> 2.填写内容<br> 给大家列出创建公网域名参数说明</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-<th>取值样例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>域名</td>
-<td>从域名注册商处获得的授权域名。</td>
-<td>example.com</td>
-</tr>
-<tr>
-<td>邮箱</td>
-<td>可选参数。<br>管理该公网域名的管理员邮箱。建议用户使用保留邮箱“HOSTMASTER@域名”作为此管理员邮箱。</td>
-<td><a href="mailto:HOSTMASTER@example.com">HOSTMASTER@example.com</a></td>
-</tr>
-<tr>
-<td>标签</td>
-<td>可选参数。<br>域名的标识，包括键和值，每个域名可以创建10个标签。</td>
-<td>example_key1<br>example_value1</td>
-</tr>
-<tr>
-<td>描述</td>
-<td>可选参数。<br>域名的描述信息。<br>长度不超过255个字符。</td>
-<td>This is a zone example.</td>
-</tr>
-</tbody></table>
-<p>最后点击”确定”</p>
-<p>3.在“公网域名”页面的域名列表中，单击域名的名称或者“操作”列的“解析”，可以为域名配置解析记录。<br>在“解析记录”页面，可以通过“添加记录集”为域名配置解析记录。</p>
-<p><img src="https://img-blog.csdnimg.cn/20191213165913376.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br><img src="https://img-blog.csdnimg.cn/20191213170001407.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>主机记录添加www就可以，<strong>这里要重点说明一下，下面的类型选择的时候要看好，如果你绑定的是github上的个人博客，那就要选择”CNAME – 将域名指向另外一个域名”；如果你要连接自己云服务器上的公网IP地址，就选择”A – 将域名指向IPv4地址”</strong> 然后底下的值添加你的github上个人博客地址，我的是<strong><a href="http://hzpcactus.github.io/">http://hzpcactus.github.io/</a></strong> ,云服务器的话，就添加你的公网IP地址，我的是<strong>139.9.139.13</strong>。其他的默认就可以。<br>由于个人申请域名备案的网站只能是个人博客，不能放自己做的系统，所以我就先不放云服务器上的地址啦，等到明年快毕业答辩的时候再偷偷的绑定，嘘~~<br>最终就是这个样子</p>
-<p><img src="https://img-blog.csdnimg.cn/20191213171509612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""></p>
-<h2 id="2-域名绑定自己个人博客"><a href="#2-域名绑定自己个人博客" class="headerlink" title="2.域名绑定自己个人博客"></a>2.域名绑定自己个人博客</h2><p>相信大家在看到这个博客之前已经创建了自己的个人博客，能通过<strong>仓库名.github.io</strong>看到自己的个人博客啦~（如果还没有创建自己的个人博客，请自行百度哦）<br>1.在你的创建hexo个人博客的文件夹中，找到source(没有就手动创建)，在source文件中新增CNAME文件(<strong>新增一个txt文件，文件名改成CNAME，记住，一定要把txt这个后缀名删掉，只保留CNAME</strong>)<br>2.打开你的CNAME文件，填入你的记录集的域名（例：<a href="http://www.hzpcactus.top" target="_blank" rel="noopener">www.hzpcactus.top</a> ），保存<br>3.首先进入我们的个人博客仓库，进入设置</p>
-<p><img src="https://img-blog.csdnimg.cn/20191213172125812.png" alt=""><br>4.然后一直往下拉，找到Github Pages</p>
-<p><img src="https://img-blog.csdnimg.cn/20191213172308979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>填入你当时添加的记录集的域名，点击保存<br>然后在浏览器中上输入你的域名（例：<a href="http://www.hzpcactus.top），就能显示出来啦，如图" target="_blank" rel="noopener">www.hzpcactus.top），就能显示出来啦，如图</a></p>
-<p><img src="https://img-blog.csdnimg.cn/20191213173624171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""></p>
+                <p>查找了好几天的相关资料，各种方法都有，但是不详细，没有弄懂，今天打算一步一步走走看，结果success~~嘻嘻😁</p>
+<h2 id="前端步骤"><a href="#前端步骤" class="headerlink" title="前端步骤"></a>前端步骤</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.首先，先去ElementUI组件库中找到Upload组件-<a href="https://element.eleme.cn/#/zh-CN/component/upload" target="_blank" rel="noopener">组件地址</a>，选择一类组件，我选择的是第一个的<br><img src="https://img-blog.csdnimg.cn/20200202133558951.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt="点击上传功能"><br>把样例代码重要的复制到自己的项目中，我当时的想法是直接调用饿了么组件的上传图片接口不就完事了嘛，结果试了一下，报错，看来还得自己写接口吖~</p>
+<h2 id="后端步骤"><a href="#后端步骤" class="headerlink" title="后端步骤"></a>后端步骤</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现在先自己写一个上传头像的接口，看看post的req是个什么东东，怎么写接口我就不再描述啦，详见上一篇<a href="https://blog.csdn.net/ciwei0605/article/details/104063455" target="_blank" rel="noopener">node.js如何写接口</a><br>然后function(req, res, next)中先console.log(req.body)，看看是什么，别忘了把前端中的el-upload标签中action的接口写上，我的是 <strong>“/users/upload/headImage”</strong>,测试一下，结果发现req.body是一个空对象，之前前端中方法添加了这些<img src="https://img-blog.csdnimg.cn/20200202135722928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""> 但是前端控制台并没有显示输出的file，然后我去饿了么组件库upload属性中找到了这个<img src="https://img-blog.csdnimg.cn/2020020213585941.png" alt=""><br>在el-upload标签中添加了这个属性，并且在方法中添加</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">beforeUpload</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>结果终于出来啦，前端控制台显示<img src="https://img-blog.csdnimg.cn/20200202140637186.png" alt=""><br>然后咱们看看接口是否连接成功~<img src="https://img-blog.csdnimg.cn/20200202142255249.png" alt=""></p>
+<p><strong>但是</strong>前端Network中此接口有可能报错，有时候报504超时，或者500服务器错误，经过测试当选择图片名为中文时，会报这种错误，图片名为数字字母时，前端提示接口就不会报错。 等找到解决办法，我会写一篇博客的~<br>现在图片以文件的格式形式存储在了服务器中，但是这不能是最终存储地方！应放在相应的云服务器上的本地地址上。所以咱们先模拟一下，直接通过服务器直接存储在设定本地的一个文件夹中。<br>刚才输出req.body发现是一个空对象，经过<a href="https://blog.csdn.net/weixin_43729581/article/details/88917916" target="_blank" rel="noopener">查阅资料</a>发现，可以利用中间件<strong>multiparty</strong>，通过它来获取文件数据，咱们把后台稍改一下，</p>
+<h3 id="后台代码如下"><a href="#后台代码如下" class="headerlink" title="后台代码如下"></a>后台代码如下</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//上传个人头像图片</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/upload/headImage'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> form <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">multiparty<span class="token punctuation">.</span>Form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>uploadDir<span class="token operator">=</span><span class="token string">"./public/images"</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// form.keepExtensions=true;   //是否保留后缀</span>
+  form<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//其中fields表示你提交的表单数据对象，files表示你提交的文件对象</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>req<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传失败！"</span><span class="token operator">+</span>err
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+        status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传成功！"</span><span class="token punctuation">,</span>
+        imgSrc<span class="token punctuation">:</span> files<span class="token punctuation">.</span>image
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>  
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意</strong>，multiparty中的uploadDir地址经过测试，应写成项目里面中的相对地址，超出项目文件夹以外的地址，就会报错<strong>Error: ENOENT: no such file or directory</strong></p>
+<h3 id="前端核心代码如下："><a href="#前端核心代码如下：" class="headerlink" title="前端核心代码如下："></a>前端核心代码如下：</h3><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>el<span class="token operator">-</span>upload
+     <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"upload-demo"</span>
+     action<span class="token operator">=</span><span class="token string">"/users/upload/headImage"</span>
+     <span class="token punctuation">:</span>on<span class="token operator">-</span>preview<span class="token operator">=</span><span class="token string">"handlePreview"</span>
+     <span class="token punctuation">:</span>before<span class="token operator">-</span>upload<span class="token operator">=</span><span class="token string">"beforeUpload"</span>
+     <span class="token punctuation">:</span>on<span class="token operator">-</span>remove<span class="token operator">=</span><span class="token string">"handleRemove"</span>
+     <span class="token punctuation">:</span>before<span class="token operator">-</span>remove<span class="token operator">=</span><span class="token string">"beforeRemove"</span>
+     multiple
+     <span class="token punctuation">:</span>limit<span class="token operator">=</span><span class="token string">"1"</span>
+     <span class="token punctuation">:</span>on<span class="token operator">-</span>exceed<span class="token operator">=</span><span class="token string">"handleExceed"</span>
+     <span class="token punctuation">:</span>file<span class="token operator">-</span>list<span class="token operator">=</span><span class="token string">"fileList"</span><span class="token operator">></span>
+     <span class="token operator">&lt;</span>el<span class="token operator">-</span>button size<span class="token operator">=</span><span class="token string">"small"</span> type<span class="token operator">=</span><span class="token string">"primary"</span><span class="token operator">></span>点击上传<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>button<span class="token operator">></span>
+     <span class="token operator">&lt;</span>div slot<span class="token operator">=</span><span class="token string">"tip"</span> <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"el-upload__tip"</span><span class="token operator">></span>只能上传jpg<span class="token operator">/</span>png文件，且不超过500kb<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>upload<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//methods中的方法</span>
+<span class="token function">beforeUpload</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">handleRemove</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> fileList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> fileList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">handlePreview</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">handleExceed</span><span class="token punctuation">(</span>files<span class="token punctuation">,</span> fileList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">warning</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`当前限制选择 1 个文件，本次选择了 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>files<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 个文件，共选择了 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>files<span class="token punctuation">.</span>length <span class="token operator">+</span> fileList<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 个文件`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">beforeRemove</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span> fileList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$confirm</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`确定移除 </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span> file<span class="token punctuation">.</span>name <span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">？`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -545,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hzpcactus.github.io/2019/12/13/%E5%9F%9F%E5%90%8D%E4%B8%8E%E5%85%AC%E7%BD%91IP%E5%9C%B0%E5%9D%80-github%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E7%BB%91%E5%AE%9A/">http://hzpcactus.github.io/2019/12/13/%E5%9F%9F%E5%90%8D%E4%B8%8E%E5%85%AC%E7%BD%91IP%E5%9C%B0%E5%9D%80-github%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E7%BB%91%E5%AE%9A/</a>
+                    <a href="http://hzpcactus.github.io/2020/02/02/%E5%88%A9%E7%94%A8elementUI%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%92%8C%E5%90%8E%E5%8F%B0node-js%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B/">http://hzpcactus.github.io/2020/02/02/%E5%88%A9%E7%94%A8elementUI%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%92%8C%E5%90%8E%E5%8F%B0node-js%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -583,8 +605,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%9F%9F%E5%90%8D/">
-                                    <span class="chip bg-color">域名</span>
+                                <a href="/tags/Node-js/">
+                                    <span class="chip bg-color">Node.js</span>
                                 </a>
                             
                         </div>
@@ -1013,30 +1035,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/16/%E4%BE%9D%E8%B5%96jquery%E7%9A%84%E8%BD%AE%E6%92%AD%E5%9B%BE%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99-e-size-is-not-a-function/">
+                <a href="/2020/02/02/%E5%88%A9%E7%94%A8elementUI%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%92%8C%E5%90%8E%E5%8F%B0node-js%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="依赖jquery的轮播图插件报错'e.size is not a function'">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="利用elementUI上传图片和后台node.js操作完整过程">
                         
-                        <span class="card-title">依赖jquery的轮播图插件报错'e.size is not a function'</span>
+                        <span class="card-title">利用elementUI上传图片和后台node.js操作完整过程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &nbsp;&nbsp;&nbsp;&nbsp;今天写项目的时候，把之前用过的html页面引用到这个vue项目中，但是接连报错。。。样式也崩掉了
-最后问题定位到了responsiveslides.min.js轮播图插件上，放到本地直接打开h
+                            查找了好几天的相关资料，各种方法都有，但是不详细，没有弄懂，今天打算一步一步走走看，结果success~~嘻嘻😁
+前端步骤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.首先，先去ElementUI组件库中找到Upload
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1045,11 +1068,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
@@ -1063,24 +1087,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/02/Echarts%E5%9C%B0%E5%9B%BE%EF%BC%88%E6%95%A3%E7%82%B9%E5%9B%BE%EF%BC%89/">
+                <a href="/2020/01/21/%E5%A6%82%E4%BD%95%E7%94%A8Node-js%E5%86%99%E5%90%8E%E5%8F%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Echarts地图（散点图）">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="如何用Node.js写后台">
                         
-                        <span class="card-title">Echarts地图（散点图）</span>
+                        <span class="card-title">如何用Node.js写后台</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            seriessymbolSize(散点图)首先series是个对象，里面存放多个数组，symbolSize要放到series对象的数组中，具体放在含有type:”scatter”的数组中，但是散点如何使用呢？我看了一下各种博客、Echart
+                            由于毕业项目需要前后端都有，前端做了个大概，思路设计的基本清晰，所以后台开始准备着手做了~
+前期工作&nbsp;&nbsp;&nbsp;&nbsp;刚开始自己打算把后台文件直接放到前端项目文件中，考虑到后台配置问题、前后端分离，所以把后台放
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
                             </span>
                         <span class="publish-author">
                             
@@ -1093,8 +1118,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Echarts/">
-                        <span class="chip bg-color">Echarts</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
