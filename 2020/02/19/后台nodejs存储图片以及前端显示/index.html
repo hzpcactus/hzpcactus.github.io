@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="猜数游戏, Hzp&#39;s Blog">
-    <meta name="description" content="例题：  牛牛和妞妞正在玩一个猜数游戏，妞妞心里想两个不相等的正数，把这两个正数的和y告诉牛牛。妞妞声称这两个数都不超过x，让牛牛猜这两个数是多少。牛牛每猜一次，妞妞会告诉他猜对了还是猜错了，猜对了就停止游戏，猜错了就直到牛牛猜对为止。妞妞">
+    <meta name="keywords" content="后台nodejs存储图片以及前端显示, Hzp&#39;s Blog">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。
+绝对路径： 写成绝对路径，比如 C:\hzpcactus\">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>猜数游戏 | Hzp&#39;s Blog</title>
+    <title>后台nodejs存储图片以及前端显示 | Hzp&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -304,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">猜数游戏</h1>
+                    <h1 class="description center-align post-title">后台nodejs存储图片以及前端显示</h1>
                 </div>
             </div>
         </div>
@@ -426,8 +427,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/Node-js/">
+                                <span class="chip bg-color">Node.js</span>
                             </a>
                         
                     </div>
@@ -442,21 +443,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-28
+                    2020-02-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-02-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    527
+                    603
                 </div>
                 
 
@@ -479,58 +480,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="例题："><a href="#例题：" class="headerlink" title="例题："></a>例题：</h1><p>  <strong>牛牛和妞妞正在玩一个猜数游戏，妞妞心里想两个不相等的正数，把这两个正数的和y告诉牛牛。<br>妞妞声称这两个数都不超过x，让牛牛猜这两个数是多少。<br>牛牛每猜一次，妞妞会告诉他猜对了还是猜错了，猜对了就停止游戏，猜错了就直到牛牛猜对为止。<br>妞妞为了加大难度，有时会误报x的大小，如果牛牛可以判断出了这个x是错误的，就会直接询问妞妞答案。<br>牛牛最坏情况下要猜多少次才能猜到妞妞想的数呢？</strong></p>
-<p><strong>输入描述：</strong> </p>
-<blockquote>
-<p><strong>两个整数x，y。1&lt;=x,y&lt;=10^14^。</strong></p>
-</blockquote>
-<p><strong>输出描述：</strong> </p>
-<blockquote>
-<p><strong>一个数n，表示牛牛在最坏情况下猜测的次数。</strong></p>
-</blockquote>
-<p><strong>输入例子1：</strong> </p>
-<blockquote>
-<p><strong>7 10</strong></p>
-</blockquote>
-<p><strong>输出例子1：</strong> </p>
-<blockquote>
-<p><strong>2</strong></p>
-</blockquote>
-<p><strong>输入例子2：</strong> </p>
-<blockquote>
-<p><strong>4 10</strong></p>
-</blockquote>
-<p><strong>输出例子2：</strong> </p>
-<blockquote>
-<p><strong>0</strong></p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;判断y值是奇数还是偶数，取中间加+1的数（为了找出每一对数字中最大的数）。比如：y值为10，则取6；y值为9，则取(9+1)/2=5。所以每一对相对较大的数都大于等于取的值，x的值只要比取的这个值大，猜测的次数就不为0，若y为偶数，猜测的次数就为x-(y/2+1)+1，若为奇数，次数就为x-(y+1)/2+1。  同时考虑还有一种情况，x大于等于y(x的值要是比y值大，每组的数字都成立)，y为偶数的次数为y/2，y为奇数的次数就为(y-1)/2。<br>   特别注意！！！题中给的范围！</p>
-<br>
-<br>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。</p>
+<p><strong>绝对路径：</strong> 写成绝对路径，比如 <strong><em>C:\hzpcactus\campus-social\static\kkrtajmWdpK148cu1a_5t4EN.jpg</em></strong> ，界面最后提示Not allowed to load local resouce报错；<br><strong>相对路径：</strong> 写成相对路径，因为后台服务器保存图片文件是相对于服务器项目的地址，应该用到 <strong>“../“或”./“</strong>，然后前端打开时，相对路径又是相对于前端项目的地址。所以，需要后台在保存图片的时候直接存到前端项目的文件夹中，然后前端代码将接收到的路径改成前端项目的相对地址。<br>然后你可以将图片以base64格式存储到数据库中，而也可以像我一样存个图片的地址，后台图片存储我用的是multiparty对象，也可以用multer。具体用法可自行百度。后台代码如下，</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//上传个人头像图片</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/upload/headImage'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> form <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">multiparty<span class="token punctuation">.</span>Form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//form.uploadDir="193.9.139.13:8080/cactusImage";</span>
+  <span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>uploadDir<span class="token operator">=</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../../campus-social/static'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>uploadDir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>keepExtensions<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//是否保留后缀</span>
+  form<span class="token punctuation">.</span>autoFiels<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//启用文件事件，并禁用部分文件事件，如果监听文件事件，则默认为true。</span>
+  form<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//其中fields表示你提交的表单数据对象，files表示你提交的文件对象</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传失败！"</span><span class="token operator">+</span>err
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+        status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传成功！"</span><span class="token punctuation">,</span>
+        personPicture<span class="token punctuation">:</span> files<span class="token punctuation">.</span>file<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>path   <span class="token comment" spellcheck="true">//存到数据库中的picture的路径（绝对路径）</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
 
-<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a<span class="token operator">=</span><span class="token function">readline</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> x<span class="token operator">=</span><span class="token function">parseInt</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> y<span class="token operator">=</span><span class="token function">parseInt</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>y<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//偶数</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>y<span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">></span>x<span class="token operator">||</span>x<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">>=</span>y<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span>y<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span>x<span class="token operator">-</span>y<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>         <span class="token comment" spellcheck="true">//奇数</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token operator">></span>x<span class="token operator">||</span>x<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>x<span class="token operator">>=</span>y<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span>y<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token function">print</span><span class="token punctuation">(</span>x<span class="token operator">-</span><span class="token punctuation">(</span>y<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>第一次写博客，请大家多多关照<br>此贴为个人想法，不喜勿喷，感谢~~</p>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们通过后台得到的图片路径传给前端，然后前端将form表单填写完，一并传给数据库，数据库收到结果，如图<br><img src="https://img-blog.csdnimg.cn/20200219225529948.png" alt=""><br>前面讲到，虽然前端用绝对路径会报错，但是前端接收图片地址后，可以将地址改成相对地址，也可以后台在传之前将其修改相对路径，这里我给大家都列举出来</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//nodejs后台修改路径</span>
+person_picture<span class="token operator">=</span><span class="token string">"static"</span><span class="token operator">+</span> person_picture<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"static"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//vue前端中利用localStorage缓存图片地址</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl <span class="token operator">=</span>window<span class="token punctuation">.</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">"personPicture"</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token string">"static"</span><span class="token operator">+</span> window<span class="token punctuation">.</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">"personPicture"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"static"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>最后前端最终的到的路径就是“static/…jpg”<br><img src="https://img-blog.csdnimg.cn/20200219230737766.png" alt=""></p>
 
             </div>
             <hr/>
@@ -556,7 +538,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hzpcactus.github.io/2019/11/28/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/">http://hzpcactus.github.io/2019/11/28/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/</a>
+                    <a href="http://hzpcactus.github.io/2020/02/19/%E5%90%8E%E5%8F%B0nodejs%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E6%98%BE%E7%A4%BA/">http://hzpcactus.github.io/2020/02/19/%E5%90%8E%E5%8F%B0nodejs%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E6%98%BE%E7%A4%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,8 +576,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/Node-js/">
+                                    <span class="chip bg-color">Node.js</span>
                                 </a>
                             
                         </div>
@@ -1024,77 +1006,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/28/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8D%8E%E4%B8%BA%E4%BA%91%EF%BC%89/">
+                <a href="/2020/02/19/%E5%90%8E%E5%8F%B0nodejs%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E6%98%BE%E7%A4%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="云服务器相关配置（华为云）">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="后台nodejs存储图片以及前端显示">
                         
-                        <span class="card-title">云服务器相关配置（华为云）</span>
+                        <span class="card-title">后台nodejs存储图片以及前端显示</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            购买云服务器前温馨提示 在选择在哪家（阿里云、腾讯云、华为云）购买云服务器前，可以权衡一下哪家的活动更加优惠，要是学生的话，会更加优惠哦（记得进行学生实名认证哦~）。 我是在华为云上买的云服务器，在购买时，建议操作系统选择Linux,目前各
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            仙人掌上的刺猬
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-                        <span class="chip bg-color">云服务器</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE/">
-                        <span class="chip bg-color">相关配置</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/28/%E7%8C%9C%E6%95%B0%E6%B8%B8%E6%88%8F/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="猜数游戏">
-                        
-                        <span class="card-title">猜数游戏</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            例题：  牛牛和妞妞正在玩一个猜数游戏，妞妞心里想两个不相等的正数，把这两个正数的和y告诉牛牛。妞妞声称这两个数都不超过x，让牛牛猜这两个数是多少。牛牛每猜一次，妞妞会告诉他猜对了还是猜错了，猜对了就停止游戏，猜错了就直到牛牛猜对为止。妞妞
+                            &nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。
+绝对路径： 写成绝对路径，比如 C:\hzpcactus\
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-19
                             </span>
                         <span class="publish-author">
                             
@@ -1108,8 +1043,54 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/02/%E5%88%A9%E7%94%A8elementUI%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%92%8C%E5%90%8E%E5%8F%B0node-js%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="利用elementUI上传图片和后台node.js操作完整过程">
+                        
+                        <span class="card-title">利用elementUI上传图片和后台node.js操作完整过程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            查找了好几天的相关资料，各种方法都有，但是不详细，没有弄懂，今天打算一步一步走走看，结果success~~嘻嘻😁
+前端步骤&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.首先，先去ElementUI组件库中找到Upload
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            仙人掌上的刺猬
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
