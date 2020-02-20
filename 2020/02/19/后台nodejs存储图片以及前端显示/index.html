@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="后台nodejs存储图片以及前端显示, Hzp&#39;s Blog">
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。
-绝对路径： 写成绝对路径，比如 C:\hzpcactus\">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。有两种方法：
+方法一：将图片存储在前端项目文件夹中绝对路径：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -450,21 +450,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-19
+                    2020-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    603
+                    919
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -480,8 +480,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。</p>
-<p><strong>绝对路径：</strong> 写成绝对路径，比如 <strong><em>C:\hzpcactus\campus-social\static\kkrtajmWdpK148cu1a_5t4EN.jpg</em></strong> ，界面最后提示Not allowed to load local resouce报错；<br><strong>相对路径：</strong> 写成相对路径，因为后台服务器保存图片文件是相对于服务器项目的地址，应该用到 <strong>“../“或”./“</strong>，然后前端打开时，相对路径又是相对于前端项目的地址。所以，需要后台在保存图片的时候直接存到前端项目的文件夹中，然后前端代码将接收到的路径改成前端项目的相对地址。<br>然后你可以将图片以base64格式存储到数据库中，而也可以像我一样存个图片的地址，后台图片存储我用的是multiparty对象，也可以用multer。具体用法可自行百度。后台代码如下，</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。有两种方法：</p>
+<h3 id="方法一：将图片存储在前端项目文件夹中"><a href="#方法一：将图片存储在前端项目文件夹中" class="headerlink" title="方法一：将图片存储在前端项目文件夹中"></a>方法一：将图片存储在前端项目文件夹中</h3><p><strong>绝对路径：</strong> 写成绝对路径，比如 <strong><em>C:\hzpcactus\campus-social\static\kkrtajmWdpK148cu1a_5t4EN.jpg</em></strong> ，界面最后提示Not allowed to load local resouce报错；<br><strong>相对路径：</strong> 写成相对路径，因为后台服务器保存图片文件是相对于服务器项目的地址，应该用到 <strong>“../“或”./“</strong>，然后前端打开时，相对路径又是相对于前端项目的地址。所以，需要后台在保存图片的时候直接存到前端项目的文件夹中，然后前端代码将接收到的路径改成前端项目的相对地址。<br>然后你可以将图片以base64格式存储到数据库中，而也可以像我一样存个图片的地址，后台图片存储我用的是multiparty对象，也可以用multer。具体用法可自行百度。后台代码如下，</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//上传个人头像图片</span>
 router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/upload/headImage'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">let</span> form <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">multiparty<span class="token punctuation">.</span>Form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -513,6 +513,32 @@ person_picture<span class="token operator">=</span><span class="token string">"s
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//vue前端中利用localStorage缓存图片地址</span>
 <span class="token keyword">this</span><span class="token punctuation">.</span>imgUrl <span class="token operator">=</span>window<span class="token punctuation">.</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">"personPicture"</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token string">"static"</span><span class="token operator">+</span> window<span class="token punctuation">.</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">"personPicture"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"static"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>最后前端最终的到的路径就是“static/…jpg”<br><img src="https://img-blog.csdnimg.cn/20200219230737766.png" alt=""></p>
+<h3 id="方法二：利用-Express-托管静态文件"><a href="#方法二：利用-Express-托管静态文件" class="headerlink" title="方法二：利用 Express 托管静态文件"></a>方法二：利用 Express 托管静态文件</h3><p>可以将图片保存在后台项目文件夹中，一般放在public中images文件夹里。<strong>使用 Express 中的 express.static 内置中间件函数。</strong> <a href="http://www.expressjs.com.cn/starter/static-files.html?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">具体介绍入口</a><br>可以在app.js中添加<strong>app.use(express.static(‘public’))</strong>，通过如上代码就可以将 public 目录下的图片、CSS 文件、JavaScript 文件对外开放访问了：<br><strong><a href="http://localhost:3000/images/picture.jpg" target="_blank" rel="noopener">http://localhost:3000/images/picture.jpg</a></strong>，数据库中存储的图片地址就是这种格式<br><img src="https://img-blog.csdnimg.cn/20200220192504791.png" alt=""><br>前端Img的src地址也是。后台代码如下，</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//上传个人头像图片</span>
+router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/upload/headImage'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> form <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">multiparty<span class="token punctuation">.</span>Form</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>uploadDir<span class="token operator">=</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../public/images'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>form<span class="token punctuation">.</span>uploadDir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  form<span class="token punctuation">.</span>keepExtensions<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//是否保留后缀</span>
+  form<span class="token punctuation">.</span>autoFiels<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//启用文件事件，并禁用部分文件事件，如果监听文件事件，则默认为true。</span>
+  form<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span>fields<span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">//其中fields表示你提交的表单数据对象，files表示你提交的文件对象</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        status<span class="token punctuation">:</span><span class="token string">"1"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传失败！"</span><span class="token operator">+</span>err
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">{</span> 
+        status<span class="token punctuation">:</span><span class="token string">"0"</span><span class="token punctuation">,</span>
+        msg<span class="token punctuation">:</span><span class="token string">"上传成功！"</span><span class="token punctuation">,</span>
+        personPicture<span class="token punctuation">:</span> <span class="token string">"http://localhost:3000"</span><span class="token operator">+</span>files<span class="token punctuation">.</span>file<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>path<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"public"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>前端直接获取数据库图片地址就OK<br><img src="https://img-blog.csdnimg.cn/20200220192805547.png" alt=""></p>
 
             </div>
             <hr/>
@@ -1023,8 +1049,8 @@ person_picture<span class="token operator">=</span><span class="token string">"s
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。
-绝对路径： 写成绝对路径，比如 C:\hzpcactus\
+                            &nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。有两种方法：
+方法一：将图片存储在前端项目文件夹中绝对路径：
                         
                     </div>
                     <div class="publish-info">
@@ -1279,7 +1305,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.6k</span>&nbsp;字
+                class="white-color">6.9k</span>&nbsp;字
             
             
             
