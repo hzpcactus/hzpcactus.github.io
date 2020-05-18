@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="依赖jquery的轮播图插件报错&#39;e.size is not a function&#39;, Hzp&#39;s Blog">
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天写项目的时候，把之前用过的html页面引用到这个vue项目中，但是接连报错。。。样式也崩掉了
-最后问题定位到了responsiveslides.min.js轮播图插件上，放到本地直接打开h">
+    <meta name="keywords" content="利用nginx访问云服务器上的vue项目, Hzp&#39;s Blog">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;由于疫情，这几个月宅在家中，终于把毕设写完了，毕业答辩也完事了，闲来无事，打算将此项目放到云服务器上供大家使用或参考借鉴。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;今天先记录一下利用ng">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>依赖jquery的轮播图插件报错&#39;e.size is not a function&#39; | Hzp&#39;s Blog</title>
+    <title>利用nginx访问云服务器上的vue项目 | Hzp&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -305,12 +304,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">依赖jquery的轮播图插件报错&#39;e.size is not a function&#39;</h1>
+                    <h1 class="description center-align post-title">利用nginx访问云服务器上的vue项目</h1>
                 </div>
             </div>
         </div>
@@ -427,8 +426,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                <span class="chip bg-color">日常</span>
+                            <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                <span class="chip bg-color">云服务器</span>
+                            </a>
+                        
+                            <a href="/tags/nginx/">
+                                <span class="chip bg-color">nginx</span>
+                            </a>
+                        
+                            <a href="/tags/vue-js/">
+                                <span class="chip bg-color">vue.js</span>
                             </a>
                         
                     </div>
@@ -443,28 +450,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-16
+                    2020-05-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-05-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    185
+                    522
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -480,8 +487,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;今天写项目的时候，把之前用过的html页面引用到这个vue项目中，但是接连报错。。。样式也崩掉了</p>
-<p><img src="https://img-blog.csdnimg.cn/20191216163424131.png" alt=""><br>最后问题定位到了<strong>responsiveslides.min.js</strong>轮播图插件上，放到本地直接打开html文件就没问题，但是放到vue项目中就会报错。<br>当时认为有可能<strong>responsiveslides.min.js</strong>版本太低的缘故，想npm一下这个包，但是在网上找没有这个包。。官方github上早在16年就停更了，issue里面也没搜到，最后查找jquery版本，发现size()方法在jquery1.8版本以后就被替换成了length，结果去<strong>responsiveslides.min.js</strong>里面全局将size()替换成length，结果就没问题啦~</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;由于疫情，这几个月宅在家中，终于把毕设写完了，毕业答辩也完事了，闲来无事，打算将此项目放到云服务器上供大家使用或参考借鉴。<br>&nbsp;&nbsp;&nbsp;&nbsp;今天先记录一下<strong>利用nginx访问云服务器上的vue项目</strong>。 在此之前，在网上查找了一些资料，其实还可以通过Apache、xampp访问。</p>
+<h3 id="1-安装nginx"><a href="#1-安装nginx" class="headerlink" title="1.安装nginx"></a>1.安装nginx</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;首先，我是直接在云服务器上下载nginx，<a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">官网链接</a>，根据自己云服务器配置下载相应包，下载下来的zip解压，nginx文件夹中的目录如下<br><img src="https://img-blog.csdnimg.cn/20200518174059630.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>双击nginx.exe，会发现出现窗口，并闪一下就消失，这属于正常现象。<br>nginx默认端口是80，所以双击之后，可直接在浏览器地址栏中输入 <strong><em><a href="http://localhost:80" target="_blank" rel="noopener">http://localhost:80</a></em></strong> ，会显示此界面，如图1，<img src="https://img-blog.csdnimg.cn/2020051817463136.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt=""><br>若界面打不开，应该是端口被占用了，打开conf/nginx.conf，将端口号修改成其他端口号，如图<br><img src="https://img-blog.csdnimg.cn/20200518182537316.png" alt=""><br>然后保存后关闭，在命令行中输入 <strong><em>nginx –s reload</em></strong>， 进行nginx重启。重启后在浏览器地址栏中输入 <code>http://localhost:端口号</code>，就能成功进入图1的界面了。</p>
+<h3 id="2-操作Vue项目"><a href="#2-操作Vue项目" class="headerlink" title="2.操作Vue项目"></a>2.操作Vue项目</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;将vue项目克隆到云服务器中，中间省略…在 <strong><em>npm run dev</em></strong> 没有问题的情况下，进行打包(<strong>npm run build</strong>)，打包之后，将dist文件直接复制粘贴到nginx文件夹下的html文件夹中<img src="https://img-blog.csdnimg.cn/20200518183522948.png" alt=""></p>
+<h3 id="3-配置nginx-conf"><a href="#3-配置nginx-conf" class="headerlink" title="3.配置nginx.conf"></a>3.配置nginx.conf</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;在nginx文件夹中打开conf/nginx.conf，修改为<img src="https://img-blog.csdnimg.cn/20200518184209902.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Npd2VpMDYwNQ==,size_16,color_FFFFFF,t_70" alt="nginx.conf相关配置"><br>重新在命令行输入 <strong><em>nginx –s reload</em></strong> 重启nginx，在浏览器地址栏中输入 <code>http://localhost:端口号</code>，查看是否显示成功。若成功，就说明其他客户端也可进行访问该项目，可在其他电脑或手机输入你的云服务器的公网IP+端口号(例：<a href="http://139.9.139.13:8081/" target="_blank" rel="noopener">http://139.9.139.13:8081/</a>)进行测试查看。</p>
+<p>参考：<br><a href="https://blog.csdn.net/baidu_30809315/article/details/86523546" target="_blank" rel="noopener">https://blog.csdn.net/baidu_30809315/article/details/86523546</a><br><a href="https://www.jianshu.com/p/7614fa1689ad" target="_blank" rel="noopener">https://www.jianshu.com/p/7614fa1689ad</a><br><a href="https://www.cnblogs.com/jiangwangxiang/p/8481661.html" target="_blank" rel="noopener">https://www.cnblogs.com/jiangwangxiang/p/8481661.html</a></p>
 
             </div>
             <hr/>
@@ -507,7 +517,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hzpcactus.github.io/2019/12/16/%E4%BE%9D%E8%B5%96jquery%E7%9A%84%E8%BD%AE%E6%92%AD%E5%9B%BE%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99-e-size-is-not-a-function/">http://hzpcactus.github.io/2019/12/16/%E4%BE%9D%E8%B5%96jquery%E7%9A%84%E8%BD%AE%E6%92%AD%E5%9B%BE%E6%8F%92%E4%BB%B6%E6%8A%A5%E9%94%99-e-size-is-not-a-function/</a>
+                    <a href="http://hzpcactus.github.io/2020/05/18/%E5%88%A9%E7%94%A8nginx%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84vue%E9%A1%B9%E7%9B%AE/">http://hzpcactus.github.io/2020/05/18/%E5%88%A9%E7%94%A8nginx%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84vue%E9%A1%B9%E7%9B%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -545,8 +555,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                                    <span class="chip bg-color">日常</span>
+                                <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                    <span class="chip bg-color">云服务器</span>
+                                </a>
+                            
+                                <a href="/tags/nginx/">
+                                    <span class="chip bg-color">nginx</span>
+                                </a>
+                            
+                                <a href="/tags/vue-js/">
+                                    <span class="chip bg-color">vue.js</span>
                                 </a>
                             
                         </div>
@@ -975,29 +993,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/01/17/%E9%87%8D%E5%AE%9A%E5%90%91%E6%97%B6%EF%BC%8C%E6%8A%A5%E9%94%99Error-ERR-HTTP-HEADERS-SENT-Cannot-set-headers-after-they-are-sent-to-the-client/">
+                <a href="/2020/05/18/%E5%88%A9%E7%94%A8nginx%E8%AE%BF%E9%97%AE%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84vue%E9%A1%B9%E7%9B%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="利用nginx访问云服务器上的vue项目">
                         
-                        <span class="card-title">重定向时，报错Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client</span>
+                        <span class="card-title">利用nginx访问云服务器上的vue项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &nbsp;&nbsp;&nbsp;&nbsp;nodejs连接mysql数据库时遇到一个问题，就是第一次连接时，数据正常接收到，但是当刷新页面重定向时报错，并且node服务会断开，如图错误代码如下：经过上网查找之后，发现res.send(
+                            &nbsp;&nbsp;&nbsp;&nbsp;由于疫情，这几个月宅在家中，终于把毕设写完了，毕业答辩也完事了，闲来无事，打算将此项目放到云服务器上供大家使用或参考借鉴。&nbsp;&nbsp;&nbsp;&nbsp;今天先记录一下利用ng
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1006,11 +1025,20 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
+                    <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                        <span class="chip bg-color">云服务器</span>
+                    </a>
+                    
+                    <a href="/tags/nginx/">
+                        <span class="chip bg-color">nginx</span>
+                    </a>
+                    
+                    <a href="/tags/vue-js/">
+                        <span class="chip bg-color">vue.js</span>
                     </a>
                     
                 </div>
@@ -1024,25 +1052,25 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/13/%E5%9F%9F%E5%90%8D%E4%B8%8E%E5%85%AC%E7%BD%91IP%E5%9C%B0%E5%9D%80-github%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E7%BB%91%E5%AE%9A/">
+                <a href="/2020/02/19/%E5%90%8E%E5%8F%B0nodejs%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87%E4%BB%A5%E5%8F%8A%E5%89%8D%E7%AB%AF%E6%98%BE%E7%A4%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="域名与公网IP地址(github个人博客)绑定">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="后台nodejs存储图片以及前端显示">
                         
-                        <span class="card-title">域名与公网IP地址(github个人博客)绑定</span>
+                        <span class="card-title">后台nodejs存储图片以及前端显示</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.域名的相关配置  &nbsp; &nbsp; 域名备案终于通过了(好麻烦。。。)，还是建议买一个香港的域名~  由于审批域名之前需要关闭域名解析，我索性删除了公网域名，如图
-  但是，审核通过了，如何把之前的删掉的添加回来呢？，步骤如下
+                            &nbsp;&nbsp;&nbsp;&nbsp;写毕设时，虽然前端能将图片文件上传到服务器，服务器又将图片文件保存在相应的本地文件夹下，但是在数据库保存的图片路径，绝对路径有问题。有两种方法：
+方法一：将图片存储在前端项目文件夹中绝对路径：
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-19
                             </span>
                         <span class="publish-author">
                             
@@ -1055,8 +1083,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%9F%E5%90%8D/">
-                        <span class="chip bg-color">域名</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
                     </a>
                     
                 </div>
